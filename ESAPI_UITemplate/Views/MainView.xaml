@@ -1,0 +1,36 @@
+﻿<Window x:Class="ESAPI_UITemplate.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ESAPI_UITemplate.Views"
+        mc:Ignorable="d"
+        Title="MainView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20,10,0,0">
+            <TextBlock Margin="2">
+                <Run Text="Patient Id: " FontWeight="Bold"/>
+                <Run Text="{Binding PatientId}"/>
+            </TextBlock>
+            <TextBlock Margin="2">
+                <Run Text="Structure Set: " FontWeight="Bold"/>
+                <Run Text="{Binding StructureSetId}"/>
+            </TextBlock>
+            <TextBlock Text="Patient input file:" FontWeight="Bold" Margin="2"/>
+            <StackPanel Margin="2" Orientation="Horizontal">
+                <TextBox Text="{Binding FilePath}" Width="300" IsEnabled="False" Margin="2"/>
+                <Button Content="..." Command="{Binding OpenPatientFileCommand}" Width="40" Margin="2"/>
+            </StackPanel>
+            <Button Content="Start Planning" Margin="2" Command="{Binding LaunchPlanCommand}" FontWeight="Bold" Background="LightSeaGreen"/>
+            <ProgressBar Margin="2" Value="{Binding ProgressValue}" Maximum="100" Height="20" Foreground="LightSeaGreen"/>
+            <TextBlock Margin="2">
+                <Run Text="Status: " FontWeight="Bold"/>
+                <Run Text="{Binding Status}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
